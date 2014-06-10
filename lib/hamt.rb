@@ -1,1 +1,0 @@
-# An implementation of the Hash Array Mapped Trie data structure
