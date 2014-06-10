@@ -9,7 +9,7 @@ describe Trie do
     expect(trie.insert("ab")).to be_falsey
     expect(trie.insert("de")).to be_falsey
   end
-  
+
   it "should search elements in the trie" do
     trie = Trie.new
     expect(trie.insert("abc")).to be_truthy
@@ -17,11 +17,19 @@ describe Trie do
     expect(trie.insert("aabc")).to be_truthy
     expect(trie.insert("abbc")).to be_truthy
     expect(trie.insert("ac")).to be_truthy
-    
+
     expect(trie.search("ab")).to contain_exactly("abc", "abbc")
     expect(trie.search("a")).to contain_exactly("abc", "abbc", "aabb", "ac", "aabc")
     expect(trie.search("b")).to be_empty
     expect(trie.search("abc")).to contain_exactly("abc")
     expect(trie.search("aab")).to contain_exactly("aabc", "aabb")
+  end
+
+  it "should not allow invalid elements to be inserted" do
+    trie = Trie.new
+    expect { trie.insert("abc") }.not_to raise_error
+    expect { trie.insert("123") }.to raise_error
+    expect { trie.insert("ABC") }.to raise_error
+    expect { trie.insert("") }.to raise_error
   end
 end
