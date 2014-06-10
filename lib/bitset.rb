@@ -24,6 +24,16 @@ class BitSet
     mask >> (31 - bit_index)
   end
 
+  def cardinality
+    result = 0
+    temp = @value
+    32.times do
+      result += (temp & 1)
+      temp >>= 1
+    end
+    return result
+  end
+
   def valid?(bit_index)
     bit_index.is_a?(Integer) and bit_index.between?(0, 31)
   end

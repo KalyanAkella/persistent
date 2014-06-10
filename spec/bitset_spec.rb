@@ -33,4 +33,10 @@ describe BitSet do
     expect(bitset.get(15)).to be(0)
     expect(bitset.get(30)).to be(0)
   end
+
+  it "should return the number of bits set" do
+    bitset = BitSet.new
+    expect(bitset.cardinality).to be(0)
+    expect(bitset.set(0).set(1).set(31).cardinality).to be(3)
+  end
 end
