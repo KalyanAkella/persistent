@@ -1,4 +1,4 @@
-require '../lib/trie'
+require_relative '../lib/trie'
 
 describe Trie do
   it "should insert elements in the trie" do

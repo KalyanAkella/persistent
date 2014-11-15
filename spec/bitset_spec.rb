@@ -1,4 +1,4 @@
-require '../lib/bitset'
+require_relative '../lib/bitset'
 
 describe BitSet do
   it "should validate the given bit index" do
